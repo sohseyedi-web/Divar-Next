@@ -10,14 +10,17 @@ import OTPInput from "react-otp-input";
 const CheckOTP = ({ phoneNumber, onResend, setStep }) => {
   const [otp, setOtp] = useState("");
   const [time, setTime] = useState(60);
-  const { isPending, mutateAsync } = useMutation({ mutationFn: checkOtp });
+  const {mutateAsync, isPending  } = useMutation({ mutationFn: checkOtp });
   const router = useRouter();
 
-  const checkOTPHandler = async () => {
+  const checkOTPHandler = async (e) => {
+    e.preventDefault();
     try {
       const { user, message } = await mutateAsync({ phoneNumber, otp });
-      console.log(user)
       toast.success(message);
+      if (!user.isActive) return setStep(3);
+      if (user.role === "USER") return router.push("/");
+      if (user.role === "ADMIN") return router.push("/admin");
     } catch (error) {
       toast.error(error?.response?.data?.message);
     }
