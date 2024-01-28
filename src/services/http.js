@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const app = axios.create({
-  baseURL: process.env.NEXT__API,
+  baseURL: "http://localhost:5200/api",
   withCredentials: true,
 });
 
@@ -18,7 +18,7 @@ app.interceptors.response.use(
       originalConfig._retry = true;
       try {
         const { data } = await axios.get(
-          `${process.env.NEXT__API}/user/refresh-token`,
+          `${process.env.NEXT_API}/user/refresh-token`,
           { withCredentials: true }
         );
         if (data) return app(originalConfig);
