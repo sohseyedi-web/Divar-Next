@@ -1,6 +1,6 @@
 "use client";
 import { getOtp } from "@/services/authServices";
-import { useState } from "react";
+import { useState} from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useMutation } from "@tanstack/react-query";
@@ -9,7 +9,7 @@ import CompleteProfile from "./CompleteProfile";
 import SendOTP from "./SendOTP";
 
 const AuthContainer = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
   const { mutateAsync, isPending } = useMutation({ mutationFn: getOtp });
   const {
     register,
@@ -38,7 +38,13 @@ const AuthContainer = () => {
           />
         );
       case 2:
-        return <CheckOTP />;
+        return (
+          <CheckOTP
+            onResend={sendOTPHandler}
+            phoneNumber={"09331559119"}
+            setStep={setStep}
+          />
+        );
       case 3:
         return <CompleteProfile />;
     }
