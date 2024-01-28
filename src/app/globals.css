@@ -35,9 +35,11 @@
 
 @layer components {
   .textField {
-    @apply w-full text-center py-3 px-4 rounded-xl bg-gray-300 text-secondary-800 border border-gray-100 outline-none duration-200 transition-all ease-in-out hover:border-primary-300 focus:outline-none focus:border-primary-300 focus:bg-white focus:shadow-md;
+    @apply input input-bordered w-full focus:bg-white bg-gray-200 text-center transition-all duration-300 outline-none;
   }
-  
+  .btn{
+    @apply btn btn-active w-full text-lg h-[45px] text-white;
+  }
 }
 
 html,
