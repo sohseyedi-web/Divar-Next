@@ -3,7 +3,7 @@ import "../../globals.css";
 import { Toaster } from "react-hot-toast";
 import Providers from "../../Providers";
 import Sidebar from "./Sidebar";
-import NavbarPanel from "@/components/panel/NavbarPanel";
+import NavbarPanel from "@/components/NavbarPanel";
 
 export const metadata = {
   title: "صفحه ادمین",
