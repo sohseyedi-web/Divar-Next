@@ -12,7 +12,7 @@ const TextField = ({
 }) => {
   return (
     <>
-      <label htmlFor={name} className="mb-3 block text-lg">
+      <label htmlFor={name} className="mb-3 block text-lg text-right">
         {label}
         {required && <span className="text-rose-500">*</span>}
       </label>

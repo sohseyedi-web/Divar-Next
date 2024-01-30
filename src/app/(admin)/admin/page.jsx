@@ -1,11 +1,11 @@
-"use client"
-import HeaderDashboard from '@/components/HeaderDashboard';
-import { useGetUser } from '@/hooks/useUser';
-import Loading from '@/ui/Loading';
-export default function Admin(){
-    const { user, isLoading } = useGetUser();
+"use client";
+import HeaderDashboard from "@/components/HeaderDashboard";
+import { useGetUser } from "@/hooks/useUser";
+import Loading from "@/ui/Loading";
+export default function Admin() {
+  const { user, isLoading } = useGetUser();
 
-
+  if (isLoading) return <Loading />;
   return (
     <section className="my-3 space-y-3">
       <HeaderDashboard user={user} />
