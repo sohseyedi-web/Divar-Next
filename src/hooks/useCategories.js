@@ -17,7 +17,7 @@ export const useGetCategory = () => {
 
   const { categories } = data || {};
 
-  return { categories, isLoading };
+  return { categories,isLoading };
 };
 export const useCreateCategory = () => {
   const queryClient = useQueryClient();

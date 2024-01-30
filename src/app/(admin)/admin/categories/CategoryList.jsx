@@ -13,7 +13,7 @@ const CategoryList = () => {
   return (
     <section className="flex items-center gap-4 flex-wrap">
       {categories?.map((item) => (
-        <CategoryItem item={item} key={item._id} />
+        <CategoryItem item={item} key={item?._id} />
       ))}
     </section>
   );

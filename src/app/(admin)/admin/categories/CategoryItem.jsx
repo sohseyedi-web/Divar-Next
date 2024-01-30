@@ -8,11 +8,11 @@ const CategoryItem = ({ item }) => {
     >
       <h6 className="text-lg font-semibold">{item?.title}</h6>
       <div className="flex items-center gap-x-4">
-        <span className="text-indigo-500">
+        <span className="text-indigo-600">
           <RiIcon.RiEdit2Line size={25} />
         </span>
 
-        <span className="text-red-500">
+        <span className="text-red-600">
           <RiIcon.RiDeleteBin2Line size={25} />
         </span>
       </div>
