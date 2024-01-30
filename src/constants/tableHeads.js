@@ -56,7 +56,7 @@ export const userListTableHeads = [
   },
   {
     id: 7,
-    label: "مشاهده",
+    label: "عملیات",
   },
 ];
 
