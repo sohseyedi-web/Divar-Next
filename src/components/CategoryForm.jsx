@@ -1,23 +1,68 @@
 import { categoryTypes } from "@/constants/categoryTypes";
-import { useCreateCategory } from "@/hooks/useCategories";
+import { useCreateCategory, useUpdateCategory } from "@/hooks/useCategories";
 import Loading from "@/ui/Loading";
 import SelectField from "@/ui/SelectField";
 import TextField from "@/ui/TextField";
 import { useForm } from "react-hook-form";
 
 const CategoryForm = ({ onClose, categoryToEdit = {} }) => {
-  const { isPending, addCategories } = useCreateCategory();
+  const { _id: categoryId } = categoryToEdit;
+  const { englishTitle, title, description, type } = categoryToEdit;
+  const isCategorySession = Boolean(categoryId);
+  let editValues = {};
+
+  if (isCategorySession) {
+    editValues = {
+      englishTitle,
+      title,
+      description,
+      type,
+    };
+  }
 
   const {
-    formState: { errors },
     register,
+    formState: { errors },
     handleSubmit,
-  } = useForm();
+  } = useForm({ defaultValues: editValues });
+  const { isPending, addCategories } = useCreateCategory();
+  const { isUpdating, updateCategories } = useUpdateCategory();
+  // const { _id: categoryId,englishTitle, title, description, type } = categoryToEdit;
+  // const isCategorySession = Boolean(categoryId);
+  // let editItem = {};
+
+  // if (isCategorySession) {
+  //   editItem = {
+  //     englishTitle,
+  //     title,
+  //     description,
+  //     type,
+  //   };
+  // }
+
+  // const {
+  //   formState: { errors },
+  //   register,
+  //   handleSubmit,
+  // } = useForm({ defaultValues: editItem });
   const onSubmit = async (data) => {
-    console.log(data)
-    await addCategories(data, {
-      onSuccess: () => onClose(),
-    });
+    if (isCategorySession) {
+      await updateCategories(
+        {
+          id: categoryId,
+          newData:{
+            ...data
+          }
+        },
+        {
+          onSuccess: () => onClose(),
+        }
+      );
+    } else {
+      await addCategories(data, {
+        onSuccess: () => onClose(),
+      });
+    }
   };
 
   return (
@@ -69,11 +114,16 @@ const CategoryForm = ({ onClose, categoryToEdit = {} }) => {
         validationSchema={{
           required: "نوع دسته بندی ضرروی است",
         }}
-
       />
-      <button className="mt-2 btn bg-red-600 btn-active w-full text-lg h-[45px] text-white">
-        {isPending ? <Loading /> : "ثبت دسته بندی"}
-      </button>
+      {isCategorySession ? (
+        <button className="mt-2 btn btn-primary btn-active w-full text-lg h-[45px] text-white">
+          {isUpdating ? <Loading /> : "ویرایش دسته بندی"}
+        </button>
+      ) : (
+        <button className="mt-2 btn bg-red-600 btn-active w-full text-lg h-[45px] text-white">
+          {isPending ? <Loading /> : "ثبت دسته بندی"}
+        </button>
+      )}
     </form>
   );
 };

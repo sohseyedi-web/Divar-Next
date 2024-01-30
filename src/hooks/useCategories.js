@@ -36,7 +36,7 @@ export const useCreateCategory = () => {
 };
 export const useUpdateCategory = () => {
   const queryClient = useQueryClient();
-  const { mutateAsync: updateCategories, isPending } = useMutation({
+  const { mutateAsync: updateCategories, isPending : isUpdating } = useMutation({
     mutationFn: updateCategory,
     onSuccess: (data) => {
       toast.success(data.message);
@@ -47,7 +47,7 @@ export const useUpdateCategory = () => {
     },
   });
 
-  return { isPending, updateCategories };
+  return { isUpdating, updateCategories };
 };
 export const useRemoveCategory = () => {
   const queryClient = useQueryClient();
