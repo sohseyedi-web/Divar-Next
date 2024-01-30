@@ -1,6 +1,15 @@
+"use client";
+import { useRemoveCategory } from "@/hooks/useCategories";
+import Loading from "@/ui/Loading";
 import * as RiIcon from "react-icons/ri";
 
 const CategoryItem = ({ item }) => {
+  const { isPending, removeCategories } = useRemoveCategory();
+
+  const handleRemvoeCategory = () => {
+    removeCategories(item._id);
+  };
+
   return (
     <div
       className="lg:w-[24%] flex items-center justify-between h-[45px] md:w-[45%] w-full md:mx-0 mx-auto rounded-md bg-gray-200 shadow-md px-2 py-1"
@@ -8,13 +17,13 @@ const CategoryItem = ({ item }) => {
     >
       <h6 className="text-lg font-semibold">{item?.title}</h6>
       <div className="flex items-center gap-x-4">
-        <span className="text-indigo-600">
+        <button className="text-indigo-600">
           <RiIcon.RiEdit2Line size={25} />
-        </span>
+        </button>
 
-        <span className="text-red-600">
-          <RiIcon.RiDeleteBin2Line size={25} />
-        </span>
+        <button onClick={handleRemvoeCategory} className="text-red-600">
+          {isPending ? <Loading /> : <RiIcon.RiDeleteBin2Line size={25} />}
+        </button>
       </div>
     </div>
   );
