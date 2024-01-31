@@ -3,7 +3,7 @@ import SidebarLayout from "@/components/SidebarLayout";
 import { CustomNavlink } from "@/ui/CustomNavlink";
 import { HiOutlineHome, HiOutlineUsers } from "react-icons/hi2";
 import { HiOutlineTemplate  } from "react-icons/hi";
-import { RiLayoutMasonryLine } from "react-icons/ri";
+import { RiLayoutMasonryLine,RiShoppingBagLine } from "react-icons/ri";
 
 const Sidebar = () => {
   return (
@@ -23,6 +23,10 @@ const Sidebar = () => {
       <CustomNavlink to={"/admin/categories"}>
         <HiOutlineTemplate size={26} />
         <h6>دسته بندی</h6>
+      </CustomNavlink>
+      <CustomNavlink to={"/admin/advertising"}>
+        <RiShoppingBagLine size={26} />
+        <h6>آگهی ها</h6>
       </CustomNavlink>
       {/* <CustomNavlink to={"/admin/products"}>
         <RiShoppingBagLine size={26} />
