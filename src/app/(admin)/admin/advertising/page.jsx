@@ -1,6 +1,6 @@
 import AdvertisingTable from "./AdvertisingTable";
 
-export default function Advertising() {
+export default function AdvertisingAdmin() {
   return (
     <section className="pt-3">
       <header className="flex items-center py-2">
