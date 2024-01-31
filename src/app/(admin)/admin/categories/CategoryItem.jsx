@@ -1,17 +1,26 @@
 "use client";
 import CategoryForm from "@/components/CategoryForm";
+import { useGetProducts } from "@/hooks/useProducts";
 import { useRemoveCategory } from "@/hooks/useCategories";
 import Loading from "@/ui/Loading";
 import Modal from "@/ui/Modal";
 import { useState } from "react";
 import * as RiIcon from "react-icons/ri";
+import { toast } from "react-hot-toast";
 
 const CategoryItem = ({ item }) => {
   const { isPending, removeCategories } = useRemoveCategory();
+  const { products } = useGetProducts();
   const [isEdit, setIsEdit] = useState(false);
 
-  const handleRemvoeCategory = () => {
-    removeCategories(item._id);
+  const hasCategoryProduct = products?.filter((p) => p.category?.title === item?.title)
+
+  const handleRemoveCategory = () => {
+    if(!hasCategoryProduct){
+      removeCategories(item._id);
+    }else{
+      toast.error("آگهی با این دسته بندی فعال است")
+    }
   };
 
   return (
@@ -35,7 +44,7 @@ const CategoryItem = ({ item }) => {
           />
         </Modal>
 
-        <button onClick={handleRemvoeCategory} className="text-red-600">
+        <button onClick={handleRemoveCategory} className="text-red-600">
           {isPending ? <Loading /> : <RiIcon.RiDeleteBin2Line size={25} />}
         </button>
       </div>
