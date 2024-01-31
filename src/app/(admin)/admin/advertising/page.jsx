@@ -1,3 +1,4 @@
+"use client"
 import AdvertisingTable from "./AdvertisingTable";
 
 export default function AdvertisingAdmin() {

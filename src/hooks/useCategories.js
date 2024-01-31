@@ -17,7 +17,8 @@ export const useGetCategory = () => {
 
   const { categories } = data || {};
 
-  return { categories,isLoading };
+
+  return { categories, isLoading };
 };
 export const useCreateCategory = () => {
   const queryClient = useQueryClient();
@@ -36,7 +37,7 @@ export const useCreateCategory = () => {
 };
 export const useUpdateCategory = () => {
   const queryClient = useQueryClient();
-  const { mutateAsync: updateCategories, isPending : isUpdating } = useMutation({
+  const { mutateAsync: updateCategories, isPending: isUpdating } = useMutation({
     mutationFn: updateCategory,
     onSuccess: (data) => {
       toast.success(data.message);

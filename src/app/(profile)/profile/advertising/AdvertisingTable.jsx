@@ -1,15 +1,15 @@
-"use client"
 import { productListTableTHeads } from "@/constants/tableHeads";
-import { usegetProducts } from "@/hooks/useProducts";
+import { useGetProducts } from "@/hooks/useProducts";
 import Loading from "@/ui/Loading";
 import Table from "@/ui/Tabel";
 import AdvertisingRow from "./AdvertisingRow";
 
 const AdvertisingTable = () => {
-  const { isLoading, products } = usegetProducts();
+  const { isLoading, products } = useGetProducts();
 
   if (isLoading) return <Loading />;
   if (!products?.length) return <div>آگهی وجود ندارد</div>;
+
 
   return (
     <Table>

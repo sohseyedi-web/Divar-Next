@@ -2,7 +2,7 @@
 import SidebarLayout from "@/components/SidebarLayout";
 import { CustomNavlink } from "@/ui/CustomNavlink";
 import { HiOutlineHome, HiOutlineUser } from "react-icons/hi2";
-import { RiLayoutMasonryLine } from "react-icons/ri";
+import { RiLayoutMasonryLine,RiShoppingBagLine } from "react-icons/ri";
 
 const Sidebar = () => {
   return (
