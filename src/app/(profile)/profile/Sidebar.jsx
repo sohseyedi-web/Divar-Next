@@ -2,7 +2,7 @@
 import SidebarLayout from "@/components/SidebarLayout";
 import { CustomNavlink } from "@/ui/CustomNavlink";
 import { HiOutlineHome, HiOutlineUser } from "react-icons/hi2";
-import { RiLayoutMasonryLine,RiShoppingBagLine } from "react-icons/ri";
+import { RiLayoutMasonryLine } from "react-icons/ri";
 
 const Sidebar = () => {
   return (
@@ -19,10 +19,10 @@ const Sidebar = () => {
         <HiOutlineUser size={26} />
         <h6>اطلاعات کاربری</h6>
       </CustomNavlink>
-      <CustomNavlink to={"/profile/advertising"}>
+      {/* <CustomNavlink to={"/profile/advertising"}>
         <RiShoppingBagLine size={26} />
         <h6>اگهی های من</h6>
-      </CustomNavlink>
+      </CustomNavlink> */}
     </SidebarLayout>
   );
 };

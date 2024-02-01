@@ -1,6 +1,6 @@
 "use client";
 import { getOtp } from "@/services/authServices";
-import { useState} from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useMutation } from "@tanstack/react-query";
