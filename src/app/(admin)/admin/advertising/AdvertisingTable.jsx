@@ -6,11 +6,11 @@ import AdvertisingRow from "./AdvertisingRow";
 
 const AdvertisingTable = () => {
   const { isLoading, products } = useGetProducts();
+  console.log(products)
 
   if (isLoading) return <Loading />;
   if (!products?.length) return <div>آگهی وجود ندارد</div>;
 
-  console.log(products)
 
   return (
     <Table>

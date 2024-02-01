@@ -32,11 +32,12 @@ export function addProdcut(data) {
 }
 
 export function removeProduct(id) {
-  return http.delete(`/admin/product/remove/${id}`).then(({ data }) => data.data);
+  return http
+    .delete(`/admin/product/remove/${id}`)
+    .then(({ data }) => data.data);
 }
 
 export function updateProduct({ productId, data }) {
-  console.log({ data });
   return http
     .patch(`/admin/product/update/${productId}`, data)
     .then(({ data }) => data.data);

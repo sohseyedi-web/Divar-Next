@@ -1,5 +1,5 @@
 import { useGetCategory } from "@/hooks/useCategories";
-import { useCreateProducts } from "@/hooks/useProducts";
+import { useCreateProducts, useUpdateProducts } from "@/hooks/useProducts";
 import Loading from "@/ui/Loading";
 import SelectField from "@/ui/SelectField";
 import TextField from "@/ui/TextField";
@@ -8,22 +8,63 @@ import { useForm } from "react-hook-form";
 import { TagsInput } from "react-tag-input-component";
 
 const AdvertisingForm = ({ onClose, advToEdit = {} }) => {
+  const { _id: advId } = advToEdit;
+  const {
+    price,
+    slug,
+    brand,
+    category,
+    title,
+    description,
+    imageLink,
+    tags: prevTags,
+  } = advToEdit;
+  const isAdvSession = Boolean(advId);
+  let editValues = {};
+
+  console.log(editValues,advToEdit)
+
+  if (isAdvSession) {
+    editValues = {
+      price,
+      slug,
+      brand,
+      category,
+      title,
+      description,
+      imageLink,
+      prevTags,
+    };
+  }
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+  } = useForm({ defaultValues: editValues });
   const { addAdvertising, isCreating } = useCreateProducts();
+  const { isUpdating, updateAdvertising } = useUpdateProducts();
   const { categories } = useGetCategory();
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState(prevTags || []);
 
   const onSubmit = async (data) => {
     const newData = { ...data, tags };
-    await addAdvertising(newData, {
-      onSuccess: () => onClose(),
-    });
-  };
 
+    if (isAdvSession) {
+      await updateAdvertising(
+        {
+          productId: advId,
+          data: newData,
+        },
+        {
+          onSuccess: () => onClose(),
+        }
+      );
+    } else {
+      await addAdvertising(newData, {
+        onSuccess: () => onClose(),
+      });
+    }
+  };
 
   return (
     <form className="space-y-3 mt-3" onSubmit={handleSubmit(onSubmit)}>
@@ -113,18 +154,15 @@ const AdvertisingForm = ({ onClose, advToEdit = {} }) => {
           required: " دسته بندی ضرروی است",
         }}
       />
-      {/* {isCategorySession ? (
+      {isAdvSession ? (
         <button className="mt-2 btn btn-primary btn-active w-full text-lg h-[45px] text-white">
-          {isUpdating ? <Loading /> : "ویرایش دسته بندی"}
+          {isUpdating ? <Loading /> : "ویرایش آگهی "}
         </button>
       ) : (
         <button className="mt-2 btn bg-red-600 btn-active w-full text-lg h-[45px] text-white">
           {isCreating ? <Loading /> : "ثبت آگهی "}
         </button>
-      )} */}
-      <button className="mt-2 btn bg-red-600 btn-active w-full text-lg h-[45px] text-white">
-        {isCreating ? <Loading /> : "ثبت آگهی "}
-      </button>
+      )}
     </form>
   );
 };

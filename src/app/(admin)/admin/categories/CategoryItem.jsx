@@ -1,5 +1,4 @@
 "use client";
-import CategoryForm from "@/components/CategoryForm";
 import { useGetProducts } from "@/hooks/useProducts";
 import { useRemoveCategory } from "@/hooks/useCategories";
 import Loading from "@/ui/Loading";
@@ -7,19 +6,22 @@ import Modal from "@/ui/Modal";
 import { useState } from "react";
 import * as RiIcon from "react-icons/ri";
 import { toast } from "react-hot-toast";
+import CategoryForm from "@/components/CategoryForm";
 
 const CategoryItem = ({ item }) => {
   const { isPending, removeCategories } = useRemoveCategory();
   const { products } = useGetProducts();
   const [isEdit, setIsEdit] = useState(false);
 
-  const hasCategoryProduct = products?.filter((p) => p.category?.title === item?.title)
+  const hasCategoryProduct = products?.filter(
+    (p) => p.category?.title === item?.title
+  );
 
   const handleRemoveCategory = () => {
-    if(!hasCategoryProduct){
+    if (!hasCategoryProduct) {
       removeCategories(item._id);
-    }else{
-      toast.error("آگهی با این دسته بندی فعال است")
+    } else {
+      toast.error("آگهی با این دسته بندی فعال است");
     }
   };
 
@@ -36,12 +38,9 @@ const CategoryItem = ({ item }) => {
         <Modal
           onClose={() => setIsEdit(false)}
           open={isEdit}
-          title={"ویرایش دسته بندی"}
+          title={"ویرایش دسته بندی "}
         >
-          <CategoryForm
-            onClose={() => setIsEdit(false)}
-            categoryToEdit={item}
-          />
+          <CategoryForm onClose={() => setIsEdit(false)} categoryToEdit={item} />
         </Modal>
 
         <button onClick={handleRemoveCategory} className="text-red-600">
