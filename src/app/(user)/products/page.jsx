@@ -26,7 +26,7 @@ export default async function Products({ searchParams }) {
     <section  className="flex container mx-auto h-screen flex-col">
       <HeaderProducts />
       <div className="flex h-screen">
-        <CategorySidebar />
+        <CategorySidebar categories={categories}/>
         <div className="flex-1 overflow-y-auto p-4 px-8">
           {products?.map((product) => (
             <div>{product?._id}</div>
