@@ -39,6 +39,7 @@ const CategoryByFilter = ({ categories }) => {
       <p className="text-lg mb-2 font-semibold">دسته بندی</p>
       {categories?.map((item) => (
         <CheckBox
+          key={item._id}
           id={item._id}
           value={item.englishTitle}
           label={item.title}

@@ -45,7 +45,7 @@ const ChangeAdvStatus = ({ onClose, advId }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
       <SelectField
         label={"تغییر وضعیت"}
         name="status"

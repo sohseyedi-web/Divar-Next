@@ -44,7 +44,7 @@ const AdvertisingRow = ({ product, index }) => {
       {product.status === "OPEN" ? (
         <td className="font-bold text-lg">
           <div className="flex items-center gap-x-4">
-            <Link href={`/admin/products/${product._id}`}>
+            <Link href={`/products/${product._id}`}>
               <HiEye className="text-blue-900 w-6 h-6" />
             </Link>
             <button onClick={() => removeAdvertising(product?._id)}>
@@ -81,7 +81,7 @@ const AdvertisingRow = ({ product, index }) => {
               advId={product?._id}
             />
           </Modal>
-          <button onClick={() => setOpen(true)}>تغییر وضعیت</button>
+          <button onClick={() => setOpen(true)} className="text-red-600">تغییر وضعیت</button>
         </td>
       )}
     </tr>
