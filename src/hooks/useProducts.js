@@ -1,5 +1,6 @@
 import {
   addProdcut,
+  changeProductStatusApi,
   getProducts,
   removeProduct,
   updateProduct,
@@ -67,4 +68,18 @@ export const useUpdateProducts = () => {
   );
 
   return { isUpdating, updateAdvertising };
+};
+export const useChangeStatusProducts = () => {
+  const { mutateAsync: changeProductStatus, isPending: isUpdating } =
+    useMutation({
+      mutationFn: changeProductStatusApi,
+      onSuccess: (data) => {
+        toast.success(data.message);
+      },
+      onError: (err) => {
+        toast.error(err?.response?.data?.message);
+      },
+    });
+
+  return { changeProductStatus, isUpdating };
 };

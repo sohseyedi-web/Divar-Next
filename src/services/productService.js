@@ -42,3 +42,7 @@ export function updateProduct({ productId, data }) {
     .patch(`/admin/product/update/${productId}`, data)
     .then(({ data }) => data.data);
 }
+
+export function changeProductStatusApi({ id, data }) {
+  return http.patch(`/product/${id}`, data).then(({ data }) => data.data);
+}

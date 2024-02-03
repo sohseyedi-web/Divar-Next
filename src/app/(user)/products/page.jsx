@@ -28,6 +28,8 @@ export default async function Products({ searchParams }) {
     getAllCategories,
   ]);
 
+  const filterProducts = products?.filter((p) => p.status === "OPEN")
+
   return (
     <section className="flex container mx-auto flex-col">
       <HeaderProducts />
@@ -35,7 +37,7 @@ export default async function Products({ searchParams }) {
         <CategorySidebar categories={categories} />
         <div className="flex-1 overflow-y-auto p-3 ">
           <div className="flex items-center gap-x-5 flex-wrap">
-            {products?.map((product) => (
+            {filterProducts?.map((product) => (
               <div
                 className="shadow rounded border border-gray-400 p-1 lg:w-[30%] md:w-[45%] w-[95%]"
                 key={product._id}
