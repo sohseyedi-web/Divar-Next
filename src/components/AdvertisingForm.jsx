@@ -11,7 +11,7 @@ const AdvertisingForm = ({ onClose, advToEdit = {} }) => {
   const { _id: advId } = advToEdit;
   const {
     price,
-    slug,
+    city,
     brand,
     category,
     title,
@@ -27,7 +27,7 @@ const AdvertisingForm = ({ onClose, advToEdit = {} }) => {
   if (isAdvSession) {
     editValues = {
       price,
-      slug,
+      city,
       brand,
       category,
       title,
@@ -67,7 +67,7 @@ const AdvertisingForm = ({ onClose, advToEdit = {} }) => {
   };
 
   return (
-    <form className="space-y-3 mt-3" onSubmit={handleSubmit(onSubmit)}>
+    <form className="space-y-3 mt-3 overflow-y-auto h-[300px] scroll" onSubmit={handleSubmit(onSubmit)}>
       <TextField
         register={register}
         errors={errors}
@@ -106,14 +106,14 @@ const AdvertisingForm = ({ onClose, advToEdit = {} }) => {
         }}
       />
       <TextField
-        label={"اسلاگ"}
-        name="slug"
+        label={"شهر"}
+        name="city"
         errors={errors}
-        placeHolder={"مثال : book"}
+        placeHolder={"مثال : تهران"}
         required
         register={register}
         validationSchema={{
-          required: "اسلاگ ضرروی است",
+          required: "شهر ضرروی است",
         }}
       />
       <TextField

@@ -44,3 +44,12 @@ body {
   user-select: none;
   background-color: var(--background-app-rgb);
 }
+
+.scroll::-webkit-scrollbar {
+  width: 0.7em;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: red;
+  border-radius: 0.1rem;
+}
