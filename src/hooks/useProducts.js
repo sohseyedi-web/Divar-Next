@@ -70,11 +70,14 @@ export const useUpdateProducts = () => {
   return { isUpdating, updateAdvertising };
 };
 export const useChangeStatusProducts = () => {
+  const queryClient = useQueryClient();
+
   const { mutateAsync: changeProductStatus, isPending: isUpdating } =
     useMutation({
       mutationFn: changeProductStatusApi,
       onSuccess: (data) => {
         toast.success(data.message);
+        queryClient.invalidateQueries({ queryKey: ["get-adv"] });
       },
       onError: (err) => {
         toast.error(err?.response?.data?.message);

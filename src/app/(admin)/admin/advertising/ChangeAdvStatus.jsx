@@ -8,11 +8,11 @@ import { useForm } from "react-hook-form";
 const optionList = [
   {
     label: "رد شده",
-    value: "CLOSED",
+    value: 0,
   },
   {
     label: "در انتظار انتشار",
-    value: "WAITING",
+    value: 1,
   },
   {
     label: "انتشار",
@@ -21,13 +21,12 @@ const optionList = [
 ];
 
 const ChangeAdvStatus = ({ onClose, advId }) => {
-  const { changeProductStatus, isUpdating } = useChangeStatusProducts();
+  const { changeProductStatus, isUpdating } = useChangeStatusProducts(advId);
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const queryClinet = useQueryClient();
 
   const onSubmit = async (data) => {
     await changeProductStatus(
@@ -38,7 +37,6 @@ const ChangeAdvStatus = ({ onClose, advId }) => {
       {
         onSuccess: () => {
           onClose();
-          queryClinet.invalidateQueries({ queryKey: ["get-adv", advId] });
         },
       }
     );

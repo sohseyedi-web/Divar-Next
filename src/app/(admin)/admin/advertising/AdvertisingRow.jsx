@@ -8,6 +8,7 @@ import { RiEdit2Line } from "react-icons/ri";
 import { useRemoveProducts } from "@/hooks/useProducts";
 import AdvertisingForm from "@/components/AdvertisingForm";
 import Modal from "@/ui/Modal";
+import { toLocalDateString } from "@/utils/ToLocalDate";
 import ChangeAdvStatus from "./ChangeAdvStatus";
 
 const statusStyle = [
@@ -16,11 +17,11 @@ const statusStyle = [
     className: "badge-danger",
   },
   {
-    label: "در انتظار تایید",
+    label: "در صف انتشار",
     className: "badge-secondary",
   },
   {
-    label: "تایید شده",
+    label: "انتشار",
     className: "badge-success",
   },
 ];
@@ -36,12 +37,27 @@ const AdvertisingRow = ({ product, index }) => {
       <td className="whitespace-nowrap font-bold">{product.title}</td>
       <td>{product.category.title}</td>
       <td>{toPersianNumbersWithComma(product.price)}</td>
-      {/* <td>
-        <span className={`badge ${statusStyle[product.status].className}`}>
+      <td>
+        <span
+          onClick={() => setOpen(true)}
+          className={`badge cursor-pointer px-2 text-white ${
+            statusStyle[product.status].className
+          }`}
+        >
           {statusStyle[product.status].label}
         </span>
-      </td> */}
-      {product.status === "OPEN" ? (
+        <Modal
+          onClose={() => setOpen(!open)}
+          open={open}
+          title={"تغییر وضعیت آگهی"}
+        >
+          <ChangeAdvStatus
+            onClose={() => setOpen(!open)}
+            advId={product?._id}
+          />
+        </Modal>
+      </td>
+      {product.status != 2 ? null : (
         <td className="font-bold text-lg">
           <div className="flex items-center gap-x-4">
             <Link href={`/products/${product._id}`}>
@@ -69,21 +85,9 @@ const AdvertisingRow = ({ product, index }) => {
             </button>
           </div>
         </td>
-      ) : (
-        <td>
-          <Modal
-            onClose={() => setOpen(!open)}
-            open={open}
-            title={"تغییر وضعیت آگهی"}
-          >
-            <ChangeAdvStatus
-              onClose={() => setOpen(!open)}
-              advId={product?._id}
-            />
-          </Modal>
-          <button onClick={() => setOpen(true)} className="text-red-600">تغییر وضعیت</button>
-        </td>
       )}
+      <td>{toLocalDateString(product.createdAt)}</td>
+
     </tr>
   );
 };

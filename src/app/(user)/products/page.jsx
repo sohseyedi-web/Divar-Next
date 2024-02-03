@@ -28,7 +28,7 @@ export default async function Products({ searchParams }) {
     getAllCategories,
   ]);
 
-  const filterProducts = products?.filter((p) => p.status === "OPEN")
+  const filterProducts = products?.filter((p) => p.status == 2)
 
   return (
     <section className="flex container mx-auto flex-col">

@@ -85,6 +85,10 @@ export const productListTableTHeads = [
     id: 6,
     label: "عملیات",
   },
+  {
+    id: 7,
+    label: "تاریخ ساخت",
+  },
 ];
 
 export const categoryListTableTHeads = [
