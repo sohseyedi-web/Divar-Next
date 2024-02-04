@@ -1,13 +1,17 @@
+"use client"
+import { useResponsive } from "@/context/ResponsiveContext";
 import { logout } from "@/services/authServices";
 import Back from "@/ui/Back";
+import { useRouter } from "next/navigation";
 import { RiShutDownLine } from "react-icons/ri";
 import { SiRobotframework } from "react-icons/si";
 
 const SidebarLayout = ({ children }) => {
-  let active = true;
+  const router = useRouter();
+  const { active } = useResponsive();
   const logoutHandler = async () => {
     await logout();
-    document.location.href("/");
+    router.push("/");
   };
 
   return (
