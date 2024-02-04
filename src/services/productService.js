@@ -25,6 +25,9 @@ export function getOneProdcutById(id) {
 export function likeProduct(id) {
   return http.post(`/product/like/${id}`).then(({ data }) => data.data);
 }
+export function saveProduct(id) {
+  return http.post(`/product/save/${id}`).then(({ data }) => data.data);
+}
 
 // admin relate function
 export function addProdcut(data) {

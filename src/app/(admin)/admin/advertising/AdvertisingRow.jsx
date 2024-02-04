@@ -41,10 +41,10 @@ const AdvertisingRow = ({ product, index }) => {
         <span
           onClick={() => setOpen(true)}
           className={`badge cursor-pointer px-2 text-white ${
-            statusStyle[product.status].className
+            statusStyle[Number(product.status)].className
           }`}
         >
-          {statusStyle[product.status].label}
+          {statusStyle[Number(product.status)].label}
         </span>
         <Modal
           onClose={() => setOpen(!open)}
@@ -57,7 +57,7 @@ const AdvertisingRow = ({ product, index }) => {
           />
         </Modal>
       </td>
-      {product.status != 2 ? null : (
+      {Number(product.status) != 2 ? null : (
         <td className="font-bold text-lg">
           <div className="flex items-center gap-x-4">
             <Link href={`/products/${product._id}`}>

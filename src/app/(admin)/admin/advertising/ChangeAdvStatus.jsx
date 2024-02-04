@@ -16,7 +16,7 @@ const optionList = [
   },
   {
     label: "انتشار",
-    value: "OPEN",
+    value: 2,
   },
 ];
 
