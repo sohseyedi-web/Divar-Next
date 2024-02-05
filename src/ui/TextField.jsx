@@ -18,7 +18,7 @@ const TextField = ({
       </label>
       <input
         type={type}
-        className="input input-bordered w-full focus:bg-white bg-gray-200 text-center transition-all duration-300 outline-none"
+        className="input input-bordered w-full focus:bg-white bg-gray-200 dark:bg-slate-900 text-center transition-all duration-300 outline-none"
         placeholder={placeHolder}
         name={name}
         id={name}

@@ -16,7 +16,7 @@ const UserListRow = ({ user, index }) => {
       <td>{toPersianNumbers(user?.phoneNumber)}</td>
       <td>{toLocalDateStringShort(user?.createdAt)}</td>
       <td className="flex items-center gap-x-2">
-        <span className="p-1 rounded text-white bg-indigo-600">
+        <span className="p-1 rounded text-indigo-400">
           <HiIcon.HiEye size={20} />
         </span>
         <span

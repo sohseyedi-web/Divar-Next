@@ -40,7 +40,7 @@ export default async function Products({ searchParams }) {
           <div className="flex items-center gap-x-5 flex-wrap">
             {filterProducts?.map((product) => (
               <div
-                className="shadow rounded border border-gray-400 p-1 lg:w-[30%] md:w-[45%] w-[90%] lg:mx-0 mx-auto"
+                className="shadow rounded border bg-gray-100 dark:bg-gray-900 border-gray-400 dark:border-slate-900 p-1 lg:w-[30%] md:w-[45%] w-[90%] lg:mx-0 mx-auto"
                 key={product._id}
               >
                 <div className="w-full h-[150px] text-white bg-red-700 rounded flex items-center justify-center gap-x-2">
@@ -60,7 +60,7 @@ export default async function Products({ searchParams }) {
                     {getDaysAgo(product?.createdAt)} در {product?.city}
                   </span>
                 </div>
-                <div className="flex items-center my-1 gap-x-2 w-full">
+                <div className="flex items-center justify-between my-1 w-full">
                   <Link
                     className="w-[65%] h-[45px] btn btn-sm btn-primary text-center"
                     href={`/products/${product._id}`}

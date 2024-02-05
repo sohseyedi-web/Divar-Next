@@ -1,6 +1,6 @@
 "use client";
 
-import { ResponsiveProvider } from "@/context/ResponsiveContext";
+import { DivarProvider } from "@/context/DivarProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
 
@@ -9,7 +9,7 @@ export default function Providers({ children }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ResponsiveProvider>{children}</ResponsiveProvider>
+      <DivarProvider>{children}</DivarProvider>
     </QueryClientProvider>
   );
 }

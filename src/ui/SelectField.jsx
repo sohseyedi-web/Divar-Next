@@ -16,11 +16,11 @@ const SelectField = ({
       </label>
       <select
         {...register(name, validationSchema)}
-        className="select select-bordered w-full focus:bg-white bg-gray-200 text-center transition-all duration-300 outline-none"
+        className="select select-bordered w-full focus:bg-white bg-gray-200 dark:bg-slate-900 text-center transition-all duration-300 outline-none"
       >
         {options?.map((option) => (
           <option
-            className=" bg-white"
+            className=" bg-white dark:bg-gray-800"
             value={option.value || option._id}
             key={option.value || option._id}
           >

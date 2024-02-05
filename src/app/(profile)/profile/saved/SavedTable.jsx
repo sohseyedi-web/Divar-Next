@@ -18,7 +18,7 @@ const SavedTable = () => {
   return (
     <Table>
       <thead>
-        <tr className=" text-gray-800">
+        <tr className=" text-gray-800 dark:text-gray-200">
           {productListTableTHeads.map((item) => (
             <th key={item.id}>{item.label}</th>
           ))}

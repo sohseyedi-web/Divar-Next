@@ -29,15 +29,15 @@ const Modal = ({ open, onClose, children, title }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full bg-slate-100 max-w-lg transform overflow-hidden rounded-xl p-6 align-middle shadow-md transition-all">
-                <Dialog.Title className="text-xl font-medium text-gray-800 w-full flex items-center justify-between py-2">
+              <Dialog.Panel className="w-full bg-slate-100 dark:bg-slate-900 max-w-lg transform overflow-hidden rounded-xl p-6 align-middle shadow-md transition-all">
+                <Dialog.Title className="text-xl font-medium text-gray-800 dark:text-gray-200 w-full flex items-center justify-between py-2">
                   <h3>{title}</h3>
 
                   <span className="cursor-pointer" onClick={onClose}>
                     <RiIcon.RiCloseLine size={28} />
                   </span>
                 </Dialog.Title>
-                <hr className="border-slate-900" />
+                <hr className="border-slate-900 dark:border-slate-700" />
                 {children}
               </Dialog.Panel>
             </Transition.Child>

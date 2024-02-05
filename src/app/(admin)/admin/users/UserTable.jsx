@@ -14,7 +14,7 @@ const UserTable = () => {
   return (
     <Table>
       <thead>
-        <tr className=" text-gray-800">
+        <tr>
           {userListTableHeads.map((item) => (
             <th key={item.id}>{item.label}</th>
           ))}

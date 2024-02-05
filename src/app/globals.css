@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background-app-rgb: 244, 245, 247;
+    --background-app-rgb: 249, 250, 251;
     --color-primary-900: 74, 109, 255;
     --color-primary-800: 92, 124, 255;
     --color-primary-700: 110, 138, 255;
@@ -31,9 +31,12 @@
     --color-red-500: 239, 68, 68;
     --color-red-300: 252, 165, 165;
   }
+
+  body {
+    @apply bg-gray-50;
+    @apply dark:bg-gray-950 dark:text-gray-200 bg-gray-50 text-gray-800;
+  }
 }
-
-
 
 html,
 body {
@@ -42,7 +45,6 @@ body {
   font-family: var(--vazir-font);
   min-height: 100vh;
   user-select: none;
-  background-color: var(--background-app-rgb);
 }
 
 .scroll::-webkit-scrollbar {

@@ -35,7 +35,7 @@ const PhoneModal = ({ product }) => {
               </CopyToClipboard>
             </div>
           </div>
-          <div className="bg-slate-300 py-1 px-2 text-right rounded">
+          <div className="bg-slate-300 dark:bg-slate-900 py-1 px-2 text-right rounded">
             <h6 className="font-bold block mb-2">هشدار پلیس</h6>
             <p>
               لطفا پیش از انجام معامله و هر نوع پرداخت وجه از صحت کالا یا خدمات

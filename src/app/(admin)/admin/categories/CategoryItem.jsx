@@ -27,12 +27,12 @@ const CategoryItem = ({ item }) => {
 
   return (
     <div
-      className="lg:w-[24%] flex items-center justify-between h-[45px] md:w-[45%] w-full md:mx-0 mx-auto rounded-md bg-gray-200 shadow-md px-2 py-1"
+      className="lg:w-[24%] flex items-center justify-between h-[45px] md:w-[45%] w-full md:mx-0 mx-auto rounded-md bg-gray-200 dark:bg-gray-800 shadow-md px-2 py-1"
       key={item?._id}
     >
       <h6 className="text-lg font-semibold">{item?.title}</h6>
       <div className="flex items-center gap-x-4">
-        <button className="text-indigo-600" onClick={() => setIsEdit(true)}>
+        <button className="text-indigo-300" onClick={() => setIsEdit(true)}>
           <RiIcon.RiEdit2Line size={25} />
         </button>
         <Modal

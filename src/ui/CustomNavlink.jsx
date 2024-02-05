@@ -14,7 +14,7 @@ export const CustomNavlink = ({ children, to }) => {
         className={
           pathname === to
             ? `${navlinkClass} bg-red-800 text-white font-semibold`
-            : `${navlinkClass} text-gray-800`
+            : `${navlinkClass} text-gray-800 dark:text-gray-200`
         }
       >
         {children}

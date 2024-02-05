@@ -19,7 +19,7 @@ export default function Categories() {
           <CategoryForm onClose={() => setIsOpen(false)}/>
         </Modal>
       </header>
-      <hr className="border-slate-900 mb-3" />
+      <hr className="border-slate-900 mb-3 dark:border-slate-700" />
       <CategoryList />
     </section>
   );

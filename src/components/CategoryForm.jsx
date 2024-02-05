@@ -27,24 +27,7 @@ const CategoryForm = ({ onClose, categoryToEdit = {} }) => {
   } = useForm({ defaultValues: editValues });
   const { isPending, addCategories } = useCreateCategory();
   const { isUpdating, updateCategories } = useUpdateCategory();
-  // const { _id: categoryId,englishTitle, title, description, type } = categoryToEdit;
-  // const isCategorySession = Boolean(categoryId);
-  // let editItem = {};
-
-  // if (isCategorySession) {
-  //   editItem = {
-  //     englishTitle,
-  //     title,
-  //     description,
-  //     type,
-  //   };
-  // }
-
-  // const {
-  //   formState: { errors },
-  //   register,
-  //   handleSubmit,
-  // } = useForm({ defaultValues: editItem });
+  
   const onSubmit = async (data) => {
     if (isCategorySession) {
       await updateCategories(

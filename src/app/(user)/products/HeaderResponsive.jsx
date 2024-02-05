@@ -13,7 +13,7 @@ const HeaderResponsive = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <footer className="lg:hidden w-full fixed bottom-0 flex items-center bg-slate-200 justify-between px-4 py-2 border-t shadow-sm">
+    <footer className="lg:hidden w-full fixed bottom-0 flex items-center bg-gray-100 dark:bg-slate-900 justify-between px-4 py-2 border-t dark:border-slate-900 shadow-sm">
       {user ? (
         <div className="flex flex-col items-center">
           <HiIcon.HiOutlineLocationMarker size={26} />

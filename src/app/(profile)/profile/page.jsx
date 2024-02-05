@@ -9,7 +9,7 @@ export default function Admin() {
   return (
     <section className="my-3 space-y-3">
       <HeaderDashboard user={user} />
-      <h6 className="lg:text-2xl md:text-xl text-lg font-semibold text-gray-800">
+      <h6 className="lg:text-2xl md:text-xl text-lg font-semibold text-gray-800 dark:text-gray-200">
         آمار کلی
       </h6>
       <p className="my-2 ">در یک نما خلاصه ای از آمار خود را ببینید</p>
