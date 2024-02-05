@@ -11,6 +11,7 @@ import getDaysAgo from "@/utils/getDaysAgo";
 import LikeAdvs from "@/components/LikeAdvs";
 import SavedAdvs from "@/components/SavedAdvs";
 import { toPersianNumbersWithComma } from "@/utils/toPersianNumber";
+import HeaderResponsive from "./HeaderResponsive";
 
 export const dynamic = "force-dynamic";
 export default async function Products({ searchParams }) {
@@ -28,7 +29,7 @@ export default async function Products({ searchParams }) {
     getAllCategories,
   ]);
 
-  const filterProducts = products?.filter((p) => p.status == 2)
+  const filterProducts = products?.filter((p) => p.status == 2);
 
   return (
     <section className="flex container mx-auto flex-col">
@@ -39,7 +40,7 @@ export default async function Products({ searchParams }) {
           <div className="flex items-center gap-x-5 flex-wrap">
             {filterProducts?.map((product) => (
               <div
-                className="shadow rounded border border-gray-400 p-1 lg:w-[30%] md:w-[45%] w-[95%]"
+                className="shadow rounded border border-gray-400 p-1 lg:w-[30%] md:w-[45%] w-[90%] lg:mx-0 mx-auto"
                 key={product._id}
               >
                 <div className="w-full h-[150px] text-white bg-red-700 rounded flex items-center justify-center gap-x-2">
@@ -76,6 +77,7 @@ export default async function Products({ searchParams }) {
           </div>
         </div>
       </div>
+      <HeaderResponsive />
     </section>
   );
 }

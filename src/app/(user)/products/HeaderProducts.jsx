@@ -13,8 +13,8 @@ const HeaderProducts = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="py-3 px-6 container mx-auto flex items-center justify-between shadow border-b border-gray-200">
-      <div className="flex items-center gap-x-4">
+    <header className="py-3 lg:px-6 px-2 container mx-auto flex items-center lg:justify-between shadow border-b border-gray-200">
+      <div className="flex items-center gap-x-4 w-full">
         <div className="flex items-center gap-x-2">
           <SiRobotframework size={32} />
           <h4 className="text-2xl font-bold">دیوار</h4>
@@ -22,14 +22,14 @@ const HeaderProducts = () => {
         <input
           type="text"
           placeholder="جست و جو آگهی"
-          className="input input-bordered w-[350px] focus:bg-white bg-gray-200 text-right transition-all duration-300 outline-none"
+          className="input input-bordered lg:w-[350px] w-full focus:bg-white bg-gray-200 text-right transition-all duration-300 outline-none"
         />
       </div>
 
-      <div className="flex items-center gap-x-2">
+      <div className="lg:flex hidden items-center gap-x-2">
         {user ? (
           <>
-            <div className="flex items-center gap-x-1">
+            <div className="flex items-center gap-x-3">
               <HiOutlineLocationMarker size={28} />
               {user?.city}
             </div>
