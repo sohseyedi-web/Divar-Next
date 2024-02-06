@@ -2,7 +2,7 @@
 
 import { useGetUser } from "@/hooks/useUser";
 import { SiRobotframework } from "react-icons/si";
-import { HiOutlineLocationMarker } from "react-icons/hi";
+import { HiOutlineLocationMarker, HiOutlineUser } from "react-icons/hi";
 import Link from "next/link";
 import { useState } from "react";
 import Modal from "@/ui/Modal";
@@ -29,6 +29,9 @@ const HeaderProducts = () => {
       <div className="lg:flex hidden items-center gap-x-2">
         {user ? (
           <>
+            <Link href={"/profile"} className="flex items-center">
+              <HiOutlineUser size={28} />
+            </Link>
             <div className="flex items-center gap-x-3">
               <HiOutlineLocationMarker size={28} />
               {user?.city}
