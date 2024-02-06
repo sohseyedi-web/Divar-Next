@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 const UserData = () => {
   let userDetails = {};
   const { user, isLoading } = useGetUser();
+
   const { updateUserProfile, isUpdating } = useUpdateUser();
   userDetails = {
     city: user?.city,
@@ -16,7 +17,6 @@ const UserData = () => {
     phoneNumber: user?.phoneNumber,
     biography: user?.biography,
   };
-  
 
   const {
     register,

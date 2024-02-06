@@ -21,9 +21,11 @@ export default function RootLayout({ children }) {
           <Toaster />
           <section className="flex container mx-auto">
             <Sidebar />
-            <div className="flex-1 p-5">
+            <div className="flex-1">
               <NavbarPanel />
+              <div className="p-5">
               {children}
+              </div>
             </div>
           </section>
         </Providers>

@@ -1,7 +1,7 @@
 "use client";
 
 import { productListTableTHeads } from "@/constants/tableHeads";
-import { useGetProducts } from "@/hooks/useProducts";
+import { useGetOwnerProducts, useGetProducts } from "@/hooks/useProducts";
 import { useGetUser } from "@/hooks/useUser";
 import Loading from "@/ui/Loading";
 import Table from "@/ui/Tabel";
@@ -10,11 +10,9 @@ import SavedRow from "./SavedRow";
 const SavedTable = () => {
   const { user } = useGetUser();
   const { products, isLoading } = useGetProducts();
-
+  
   if (isLoading) return <Loading />;
-
-  if(!products?.saved?.length) return <p>آگهی نشان نشده است</p>
-
+  if(!user?.savedProducts?.length) return <div>آگهی نشان نشده است</div>
   return (
     <Table>
       <thead>

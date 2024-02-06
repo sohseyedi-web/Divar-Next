@@ -1,6 +1,7 @@
 import {
   addProdcut,
   changeProductStatusApi,
+  getOwnerProductsApi,
   getProducts,
   removeProduct,
   updateProduct,
@@ -19,6 +20,16 @@ export const useGetProducts = () => {
   const { products } = data || {};
 
   return { isLoading, products };
+};
+export const useGetOwnerProducts = () => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["get-adv"],
+    queryFn: getOwnerProductsApi,
+    retry: false,
+    refetchOnWindowFocus: true,
+  });
+
+  return { isLoading, data };
 };
 export const useCreateProducts = () => {
   const queryClient = useQueryClient();

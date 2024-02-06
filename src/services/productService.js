@@ -22,6 +22,10 @@ export function getOneProdcutBySlug(slug) {
 export function getOneProdcutById(id) {
   return http.get(`/product/${id}`).then(({ data }) => data.data);
 }
+
+export function getOwnerProductsApi() {
+  return http.get("/product/owner-projects").then(({ data }) => data.data);
+}
 export function likeProduct(id) {
   return http.post(`/product/like/${id}`).then(({ data }) => data.data);
 }
