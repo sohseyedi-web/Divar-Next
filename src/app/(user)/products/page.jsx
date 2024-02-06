@@ -32,11 +32,11 @@ export default async function Products({ searchParams }) {
   const filterProducts = products?.filter((p) => p.status == 2);
 
   return (
-    <section className="flex container mx-auto flex-col">
-      <HeaderProducts />
-      <div className="flex">
-        <CategorySidebar categories={categories} />
-        <div className="flex-1 overflow-y-auto p-3 ">
+    <section className="flex container mx-auto">
+      <CategorySidebar categories={categories} />
+      <div className="flex-1">
+        <HeaderProducts />
+        <div className="flex-1 h-screen overflow-y-auto p-3">
           <div className="flex items-center gap-x-5 flex-wrap">
             {filterProducts?.map((product) => (
               <div
@@ -60,14 +60,14 @@ export default async function Products({ searchParams }) {
                     {getDaysAgo(product?.createdAt)} در {product?.city}
                   </span>
                 </div>
-                <div className="flex items-center justify-between my-1 w-full">
+                <div className="flex items-center gap-x-2 my-1 w-full">
                   <Link
                     className="w-[65%] h-[45px] btn btn-sm btn-primary text-center"
                     href={`/products/${product._id}`}
                   >
                     مشاهده محصول
                   </Link>
-                  <div className="flex items-center w-[35%]">
+                  <div className="flex items-center w-[35%] justify-between">
                     <LikeAdvs product={product} />
                     <SavedAdvs product={product} />
                   </div>

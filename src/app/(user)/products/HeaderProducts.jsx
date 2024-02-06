@@ -13,16 +13,16 @@ const HeaderProducts = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="py-3 lg:px-6 px-2 container mx-auto flex items-center lg:justify-between shadow border-b border-gray-200 dark:bg-slate-800 dark:border-slate-900">
+    <header className="py-1.5 lg:px-6 px-2 container mx-auto flex items-center lg:justify-between shadow border-b border-gray-200 dark:bg-slate-900 dark:border-slate-900">
       <div className="flex items-center gap-x-4 w-full">
-        <div className="flex items-center gap-x-2">
+        <div className="flex items-center gap-x-2 lg:hidden">
           <SiRobotframework size={32} />
           <h4 className="text-2xl font-bold">دیوار</h4>
         </div>
         <input
           type="text"
           placeholder="جست و جو آگهی"
-          className="input input-bordered lg:w-[350px] w-full focus:bg-white bg-gray-200 dark:bg-slate-900 text-right transition-all duration-300 outline-none"
+          className="input input-bordered lg:w-[350px] w-full focus:bg-white bg-gray-200 dark:bg-slate-700 text-right transition-all duration-300 outline-none"
         />
       </div>
 

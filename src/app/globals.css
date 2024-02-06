@@ -34,7 +34,7 @@
 
   body {
     @apply bg-gray-50;
-    @apply dark:bg-gray-950 dark:text-gray-200 bg-gray-50 text-gray-800;
+    @apply dark:bg-slate-800 dark:text-gray-200 bg-gray-50 text-gray-800;
   }
 }
 
@@ -43,8 +43,9 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--vazir-font);
-  min-height: 100vh;
   user-select: none;
+  overflow-y: hidden;
+  box-sizing: border-box;
 }
 
 .scroll::-webkit-scrollbar {

@@ -28,16 +28,12 @@ const SidebarLayout = ({ children }) => {
           active ? "w-[240px] right-0 top-0" : "-right-28 w-0 top-0"
         } fixed z-50 lg:relative h-screen bg-gray-100 dark:bg-slate-900  border-l dark:border-slate-900  py-3.5 px-3 rounded space-y-3 transition-all duration-300`}
       >
-        {pathname === "/products" ? null : (
-          <>
             <div className="flex items-center gap-x-2 px-2">
               <SiRobotframework size={32} />
               <h4 className="text-2xl font-bold">دیوار</h4>
             </div>
-            <hr />
-          </>
-        )}
-        <div className="mt-3">
+            <hr className="border-slate-900 mb-3 dark:border-slate-700" />
+        <div className="pt-3">
           <ul className="flex flex-col gap-y-3">
             {children}
             {pathname === "/products" ? null : (
