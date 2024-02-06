@@ -17,7 +17,7 @@ const SavedTable = () => {
     }
     return acc;
   }, []);
-  
+
   if (isLoading) return <Loading />;
   if (!resultSave.length) return <div>آگهی نشان نشده است</div>;
   return (
