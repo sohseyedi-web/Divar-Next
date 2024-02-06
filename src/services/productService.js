@@ -15,9 +15,7 @@ export function getProducts(qs, cookies) {
   //   .then(({ data }) => data);
 }
 
-export function getOneProdcutBySlug(slug) {
-  return http.get(`/product/slug/${slug}`).then(({ data }) => data.data);
-}
+
 
 export function getOneProdcutById(id) {
   return http.get(`/product/${id}`).then(({ data }) => data.data);

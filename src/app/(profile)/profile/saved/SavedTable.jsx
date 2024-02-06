@@ -10,9 +10,16 @@ import SavedRow from "./SavedRow";
 const SavedTable = () => {
   const { user } = useGetUser();
   const { products, isLoading } = useGetProducts();
+  const resultSave = products?.reduce((acc, product) => {
+    const isSaved = product.saved.some((savedId) => savedId === user?._id);
+    if (isSaved) {
+      acc.push(product);
+    }
+    return acc;
+  }, []);
   
   if (isLoading) return <Loading />;
-  if(!user?.savedProducts?.length) return <div>آگهی نشان نشده است</div>
+  if (!resultSave.length) return <div>آگهی نشان نشده است</div>;
   return (
     <Table>
       <thead>
@@ -23,13 +30,9 @@ const SavedTable = () => {
         </tr>
       </thead>
       <tbody>
-        {user?.savedProducts?.map((items) =>
-          products
-            ?.filter((p) => p._id === items)
-            .map((product, index) => (
-              <SavedRow product={product} index={index} key={product._id} />
-            ))
-        )}
+        {resultSave?.map((product, index) => (
+          <SavedRow product={product} index={index} key={product._id} />
+        ))}
       </tbody>
     </Table>
   );
