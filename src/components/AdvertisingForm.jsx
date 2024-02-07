@@ -1,3 +1,4 @@
+"use client";
 import { useGetCategory } from "@/hooks/useCategories";
 import { useCreateProducts, useUpdateProducts } from "@/hooks/useProducts";
 import Loading from "@/ui/Loading";
@@ -6,9 +7,11 @@ import TextField from "@/ui/TextField";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { TagsInput } from "react-tag-input-component";
+import { useGetUser } from "@/hooks/useUser";
 
 const AdvertisingForm = ({ onClose, advToEdit = {} }) => {
   const { _id: advId } = advToEdit;
+  const { user } = useGetUser();
   const {
     price,
     city,
@@ -17,12 +20,12 @@ const AdvertisingForm = ({ onClose, advToEdit = {} }) => {
     title,
     description,
     imageLink,
+    slug,
+    userCreated,
     tags: prevTags,
   } = advToEdit;
   const isAdvSession = Boolean(advId);
   let editValues = {};
-
-  console.log(editValues,advToEdit)
 
   if (isAdvSession) {
     editValues = {
@@ -34,6 +37,8 @@ const AdvertisingForm = ({ onClose, advToEdit = {} }) => {
       description,
       imageLink,
       prevTags,
+      slug,
+      userCreated,
     };
   }
   const {
@@ -47,7 +52,12 @@ const AdvertisingForm = ({ onClose, advToEdit = {} }) => {
   const [tags, setTags] = useState(prevTags || []);
 
   const onSubmit = async (data) => {
-    const newData = { ...data, tags };
+    const newData = {
+      ...data,
+      tags,
+      slug: String(Math.random()),
+      userCreated: user?._id,
+    };
 
     if (isAdvSession) {
       await updateAdvertising(
@@ -67,7 +77,10 @@ const AdvertisingForm = ({ onClose, advToEdit = {} }) => {
   };
 
   return (
-    <form className="space-y-3 mt-3 overflow-y-auto h-[300px] scroll" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="space-y-3 mt-3 overflow-y-auto h-[300px] scroll"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <TextField
         register={register}
         errors={errors}
