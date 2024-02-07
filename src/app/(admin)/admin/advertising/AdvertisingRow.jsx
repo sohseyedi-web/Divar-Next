@@ -81,13 +81,12 @@ const AdvertisingRow = ({ product, index }) => {
               />
             </Modal>
             <button onClick={() => setIsEdit(true)}>
-              <RiEdit2Line className="w-6 h-6 text-gray-800" />
+              <RiEdit2Line className="w-6 h-6 text-purple-600" />
             </button>
           </div>
         </td>
       )}
       <td>{toLocalDateString(product.createdAt)}</td>
-
     </tr>
   );
 };

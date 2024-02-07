@@ -12,8 +12,8 @@ const UserListRow = ({ user, index }) => {
       <td>{toPersianNumbersWithComma(index + 1)}</td>
       <td>{user?.name}</td>
       <td>{user?.email}</td>
-      <td>{!user?.Products.length ? "-" : null}</td>
       <td>{toPersianNumbers(user?.phoneNumber)}</td>
+      <td>{!user?.Products.length ? "-" : null}</td>
       <td>{toLocalDateStringShort(user?.createdAt)}</td>
       <td className="flex items-center gap-x-2">
         <span className="p-1 rounded text-indigo-400">

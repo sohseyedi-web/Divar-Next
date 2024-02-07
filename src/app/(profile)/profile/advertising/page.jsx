@@ -11,7 +11,7 @@ export default function AdvertisingMe() {
 
   return (
     <section className="pt-3">
-      <header className="flex items-center justify-between py-2">
+      <header className="flex items-center justify-between py-2 container">
         <h5 className="text-xl font-semibold ">آگهی های من</h5>
         <Modal onClose={() => setOpen(false)} open={open} title={"ایجاد آگهی"}>
           <AdvertisingForm onClose={() => setOpen(false)} />

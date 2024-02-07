@@ -1,7 +1,7 @@
 "use client";
 
 import { productListTableTHeads } from "@/constants/tableHeads";
-import { useGetOwnerProducts, useGetProducts } from "@/hooks/useProducts";
+import { useGetProducts } from "@/hooks/useProducts";
 import { useGetUser } from "@/hooks/useUser";
 import Loading from "@/ui/Loading";
 import Table from "@/ui/Tabel";
@@ -23,7 +23,7 @@ const SavedTable = () => {
   return (
     <Table>
       <thead>
-        <tr className=" text-gray-800 dark:text-gray-200">
+        <tr>
           {productListTableTHeads.map((item) => (
             <th key={item.id}>{item.label}</th>
           ))}

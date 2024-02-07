@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
             <Sidebar />
             <div className="flex-1">
               <NavbarPanel />
-              <div className="p-5 h-screen">{children}</div>
+              <div className="py-5 px-2 h-screen">{children}</div>
             </div>
           </section>
         </Providers>
